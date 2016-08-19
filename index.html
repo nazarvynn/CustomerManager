@@ -1,0 +1,47 @@
+<!DOCTYPE html><!--Content-type: Preventing MHTML XSS in IE.-->
+<html ng-app="CustomerManager">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Customer Manager</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https:////maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+
+  <script src="js/app/main.js"></script>
+  <script src="js/app/navigation/NavigationController.js"></script>
+  <script src="js/app/customerOrder/CustomerOrderController.js"></script>
+  <!--script src="js/app/customerSorting/CustomerSortingDirective.js"></script-->
+  <script src="js/app/customer/CustomerController.js"></script>
+  <script src="js/app/customer/CustomerFactory.js"></script>
+  <script src="js/app/order/OrderController.js"></script>
+  <script src="js/app/order/OrderFactory.js"></script>
+  <script src="js/app/filters/OrderObjectBy.js"></script>
+</head>
+<body>
+  <main>
+    <header class="shadow-effect">
+      <div class="header-main">
+        <a class="logo" href="">Customer Manager</a>
+        <nav ng-controller="NavigationController">
+          <button type="button" class="btn btn-default customers-btn" ng-click="goTab('customers')" ng-class="{'btn-primary': customersTab}">Customers</button>
+          <button type="button" class="btn btn-default orders-btn" ng-click="goTab('orders')" ng-class="{'btn-primary': ordersTab}">Orders</button>
+        </nav>
+      </div>
+    </header>
+    <section class="content">
+      <div class="content-main">
+        <div ng-view=""></div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="footer-main">
+      Project: "Customer Manager".
+    </section>
+  </footer>
+</body>
+</html>

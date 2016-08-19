@@ -1,0 +1,74 @@
+<h2>Customers</h2>
+<div>
+  <div class="row">
+    <div class="col-md-3">
+      <label>First Name:</label><br />
+      <input type="text" class="form-control" ng-model="newCustomer.firstName" placeholder="First Name" />
+    </div>
+    <div class="col-md-3">
+      <label>Last Name:</label><br />
+      <input type="text" class="form-control" ng-model="newCustomer.lastName" placeholder="Last Name" />
+    </div>
+    <div class="col-md-3">
+      <label>City:</label><br />
+      <input type="text" class="form-control" ng-model="newCustomer.city" placeholder="City" />
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="btn btn-success add-customer-btn" ng-click="addCustomer()">Add Customer</button>
+      <!--div customer-sorting></div -->
+      <div class="btn-group customer-order-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          Sort <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <a href="" ng-click="predicate='firstName'; reverse=!reverse">
+              First Name
+              <span ng-show="predicate=='firstName'" ng-class="{'glyphicon-sort-by-attributes': !reverse, 'glyphicon-sort-by-attributes-alt': reverse}" class="glyphicon"></span>
+            </a>
+          </li>
+          <li>
+            <a href="" ng-click="predicate='lastName'; reverse=!reverse">
+              Last Name
+              <span ng-show="predicate=='lastName'" ng-class="{'glyphicon-sort-by-attributes': !reverse, 'glyphicon-sort-by-attributes-alt': reverse}" class="glyphicon glyphicon-sort-by-attributes"></span>
+            </a>
+          </li>
+          <li>
+            <a href="" ng-click="predicate='city'; reverse=!reverse">
+              City
+              <span ng-show="predicate=='city'" ng-class="{'glyphicon-sort-by-attributes': !reverse, 'glyphicon-sort-by-attributes-alt': reverse}" class="glyphicon glyphicon-sort-by-attributes"></span>
+            </a>
+          </li>
+          <li>
+            <a href="" ng-click="predicate='ordersCount'; reverse=!reverse">
+              Orders
+              <span ng-show="predicate=='ordersCount'" ng-class="{'glyphicon-sort-by-attributes': !reverse, 'glyphicon-sort-by-attributes-alt': reverse}" class="glyphicon glyphicon-sort-by-attributes"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="h-line"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3" ng-repeat="(index, customer) in customers | orderObjectBy: predicate: reverse">
+      <div class="customer-item" >
+        <div class="customer-header">
+          <h4 class="customer-name">{{customer.firstName}} {{customer.lastName}}</h4>
+          <button type="button" class="btn btn-danger btn-xs customer-remove" ng-click="remove(customer.key)">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+        </div>
+        <div class="customer-content">
+          <p class="customer-city">{{customer.city}}</p>
+          <p ng-show="customer.ordersCount"><a href="#/customer-orders/{{customer.key}}">View {{customer.ordersCount}} Orders</a></p>
+          <p ng-show="!customer.ordersCount"><a href="#/customer-orders/{{customer.key}}">Add Orders</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

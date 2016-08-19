@@ -1,0 +1,31 @@
+<div class="btn-group customer-order-btn">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Sort <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="" ng-click="predicate='firstName'; reverse=!reverse">
+        First Name
+        <span ng-show="predicate=='firstName'" ng-class="{'glyphicon-sort-by-attributes': !reverse, 'glyphicon-sort-by-attributes-alt': reverse}" class="glyphicon"></span>
+      </a>
+    </li>
+    <li>
+      <a href="" ng-click="predicate='lastName'; reverse=!reverse">
+        Last Name
+        <span ng-show="predicate=='lastName'" ng-class="{'glyphicon-sort-by-attributes': !reverse, 'glyphicon-sort-by-attributes-alt': reverse}" class="glyphicon glyphicon-sort-by-attributes"></span>
+      </a>
+    </li>
+    <li>
+      <a href="" ng-click="predicate='city'; reverse=!reverse">
+        City
+        <span ng-show="predicate=='city'" ng-class="{'glyphicon-sort-by-attributes': !reverse, 'glyphicon-sort-by-attributes-alt': reverse}" class="glyphicon glyphicon-sort-by-attributes"></span>
+      </a>
+    </li>
+    <li>
+      <a href="" ng-click="predicate='ordersCount'; reverse=!reverse">
+        Orders
+        <span ng-show="predicate=='ordersCount'" ng-class="{'glyphicon-sort-by-attributes': !reverse, 'glyphicon-sort-by-attributes-alt': reverse}" class="glyphicon glyphicon-sort-by-attributes"></span>
+      </a>
+    </li>
+  </ul>
+</div>
